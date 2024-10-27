@@ -12,7 +12,7 @@ ENV	    DEBIAN_FRONTEND=noninteractive
 WORKDIR     /tmp/workdir
 
 RUN     apt-get -yqq update && \
-        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 python3 && \
+        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 python3 fontconfig fonts-dejavu-core && \
         apt-get autoremove -y && \
         apt-get clean -y
 
@@ -109,7 +109,9 @@ RUN      buildDeps="autoconf \
                     python3 \
                     libssl-dev \
                     yasm \
-                    zlib1g-dev" && \
+                    zlib1g-dev \
+                    libfreetype6-dev \
+                    libfontconfig1-dev" && \
         apt-get -yqq update && \
         apt-get install -yq --no-install-recommends ${buildDeps}
 
